@@ -1,5 +1,9 @@
 name: Create PR for new resources.
-on: repository_dispatch
+on:
+    repository_dispatch:
+        types: import_resources
+    schedule:
+        - cron: '*/5 * * * *'
 jobs:
   import_resources:
     runs-on: ubuntu-latest
@@ -8,7 +12,6 @@ jobs:
       - name: Run resource import script
         run: ./_scripts/import_resources.py
       - name: Create pull request
-        if: github.event.action == 'import_resources'
         uses: peter-evans/create-pull-request@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

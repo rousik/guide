@@ -10,7 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run resource import script
-        run: ./_scripts/import_resources.py
+        run: |
+            ./_scripts/import_resources.py
+            ls -l ./_resources/
+            git status
       - name: Create pull request
         uses: peter-evans/create-pull-request@v2
         with:

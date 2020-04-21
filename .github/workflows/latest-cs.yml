@@ -2,7 +2,7 @@ name: Continuous translation integration
 on:
   schedule:
     # Once per hour
-    - cron: '* * * * *'
+    - cron: '*/2 * * * *'
 jobs:
   sync_translations:
     runs-on: ubuntu-latest

@@ -2,8 +2,6 @@ name: Create PR for new resources.
 on:
     repository_dispatch:
         types: import_resources
-    schedule:
-        - cron: '*/5 * * * *'
 jobs:
   import_resources:
     runs-on: ubuntu-latest

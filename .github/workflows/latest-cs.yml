@@ -1,7 +1,7 @@
 on:
   schedule:
     # Once per hour
-    - cron: '*/5 * * * *'
+    - cron: '*/1 * * * *'
 jobs:
   sync_translations:
     runs-on: ubuntu-latest

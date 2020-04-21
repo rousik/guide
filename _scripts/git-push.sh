@@ -9,12 +9,12 @@ set -e
 branch="$1"
 commit_message="$2"
 
-if [ ( -z "$branch" ) -o ( -z "$commit_message" ) ]; then
+if [ -z "$branch" -o -z "$commit_message" ]; then
     echo "Usage: git-push.sh branch_name commit_message"
     exit 1
 fi
 
-remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" && \
+remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 git remote add github $remote_repo
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"

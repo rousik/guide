@@ -1,0 +1,21 @@
+on:
+  schedule:
+    # Once per hour
+    - cron: '*/5 * * * *'
+jobs:
+  sync_translations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Push recent translations to latest-translation branch
+        env:
+          IMPORT_LANG: cs
+        run: |
+          echo $(date +%F) >> latest_test_timestamp
+          git config user.name ${GITHUB_ACTOR}
+          git config user.email ${GITHUB_ACTOR}@users.noreply.github.com
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/rousik/${{ github.repository }}
+          git checkout -B latest-translation/$IMPORT_LANG
+          git add .
+          git commit -am "Update $IMPORT_LANG translations from Lokalise"
+          git push

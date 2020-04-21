@@ -13,10 +13,4 @@ jobs:
           IMPORT_LANG: cs
         run: |
           echo $(date +%F) >> latest_test_timestamp
-          git config user.name ${GITHUB_ACTOR}
-          git config user.email ${GITHUB_ACTOR}@users.noreply.github.com
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/rousik/${{ github.repository }}
-          git checkout -B latest-translation/$IMPORT_LANG
-          git add .
-          git commit -am "Update $IMPORT_LANG translations from Lokalise"
-          git push --set-upstream origin latest-translation/$IMPORT_LANG
+          _scripts/git-push.sh latest-translation/$IMPORT_LANG "Update test_timestamp"

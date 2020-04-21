@@ -19,4 +19,4 @@ jobs:
           git checkout -B latest-translation/$IMPORT_LANG
           git add .
           git commit -am "Update $IMPORT_LANG translations from Lokalise"
-          git push
+          git push --set-upstream origin latest-translation/$IMPORT_LANG

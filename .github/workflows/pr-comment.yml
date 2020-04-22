@@ -1,0 +1,12 @@
+on:
+  pull_request:
+    branches:
+    - 'master'
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Print out branches
+      env:
+        B1: ${{ github.event.pull_request.head.ref }}
+        B2: ${{ github.event.pull_request.base.ref }}
+      run: echo $B1 $B2

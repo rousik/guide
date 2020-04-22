@@ -5,6 +5,7 @@ on:
     - 'master'
 jobs:
   comment_on_pr:
+    if: !startsWith("${{ github.event.pull_request.head.ref }}", "import-resources")
     runs-on: ubuntu-latest
     steps:
       - name: Print out branches
@@ -17,4 +18,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          msg: "Don't do this, use [this form](https://for    ms.gle/2zi67brmMZ7byCvb8)."
+          msg: "Don't do this, use [this form](https://forms.gle/2zi67brmMZ7byCvb8)."

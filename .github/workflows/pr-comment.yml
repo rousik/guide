@@ -19,3 +19,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           msg: "Don't do this, use [this form](https://forms.gle/2zi67brmMZ7byCvb8)."
+      - name: Fail the check
+        run: exit 1

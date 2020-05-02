@@ -27,7 +27,7 @@ jobs:
           IMPORT_LANG: ${{ github.event.client_payload.lang }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
-          GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
+          GITHUB_ACTOR: preview-translation-workflow
         run: _scripts/git-push.sh preview/latest/$IMPORT_LANG "sync $IMPORT_LANG"
       - name: Build Jekyll site
         run: |

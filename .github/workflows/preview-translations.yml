@@ -36,7 +36,7 @@ jobs:
       - name: Deploy to translation-preview repo
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY_NAME: rousik/guide-translation-preview-${{ github.event.client_payload.lang }}
           BRANCH: gh-pages
           FOLDER: build
